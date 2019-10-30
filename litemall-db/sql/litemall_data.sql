@@ -29,7 +29,7 @@ UNLOCK TABLES;
 -- Dumping data for table `litemall_address`
 --
 
-LOCK TABLES `litemall_address` WRITE;
+LOCK TABLES `litemall_address` WRITE
 /*!40000 ALTER TABLE `litemall_address` DISABLE KEYS */;
 /*!40000 ALTER TABLE `litemall_address` ENABLE KEYS */;
 UNLOCK TABLES;
