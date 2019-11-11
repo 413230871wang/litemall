@@ -193,17 +193,17 @@ public class WxAuthController {
             return ResponseUtil.badArgumentValue();
         }
 
-        if (!notifyService.isSmsEnable()) {
-            return ResponseUtil.fail(AUTH_CAPTCHA_UNSUPPORT, "小程序后台验证码服务不支持");
-        }
+//        if (!notifyService.isSmsEnable()) {
+//            return ResponseUtil.fail(AUTH_CAPTCHA_UNSUPPORT, "小程序后台验证码服务不支持");
+//        }
         String code = CharUtil.getRandomNum(6);
-        notifyService.notifySmsTemplate(phoneNumber, NotifyType.CAPTCHA, new String[]{code});
+//        notifyService.notifySmsTemplate(phoneNumber, NotifyType.CAPTCHA, new String[]{code});
 
         boolean successful = CaptchaCodeManager.addToCache(phoneNumber, code);
         if (!successful) {
             return ResponseUtil.fail(AUTH_CAPTCHA_FREQUENCY, "验证码未超时1分钟，不能发送");
         }
-
+        System.out.println("验证码是："+code);
         return ResponseUtil.ok();
     }
 
